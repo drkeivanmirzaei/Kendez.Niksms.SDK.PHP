@@ -1,0 +1,50 @@
+{
+    "name": "kendez/niksms-sdk",
+    "description": "NikSms SDK for PHP - REST and gRPC client for NikSms SMS service",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["sms", "niksms", "grpc", "rest", "api", "telecommunication", "messaging"],
+    "homepage": "https://github.com/kendez/niksms-sdk-php",
+    "support": {
+        "email": "info@kendez.com",
+        "issues": "https://github.com/kendez/niksms-sdk-php/issues",
+        "source": "https://github.com/kendez/niksms-sdk-php"
+    },
+    "authors": [
+        {
+            "name": "Kendez Team",
+            "email": "info@kendez.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.4",
+        "grpc/grpc": "^1.50.0",
+        "google/protobuf": "^3.22.0",
+        "guzzlehttp/guzzle": "^7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0",
+        "phpstan/phpstan": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Niksms\\": "src/Niksms/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Niksms\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "analyse": "phpstan analyse",
+        "generate-proto": "protoc --php_out=src --grpc_out=src --plugin=protoc-gen-grpc=vendor/bin/grpc_php_plugin proto/Service.proto"
+    },
+    "config": {
+        "sort-packages": true,
+        "optimize-autoloader": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}

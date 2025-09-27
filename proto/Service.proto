@@ -1,0 +1,338 @@
+syntax = "proto3";
+package WebService;
+option csharp_namespace = "Kendez.NikSms.WebService.GrpcClient";
+
+/*---------- Imports ----------*/
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/any.proto";
+
+/*---------- Services ----------*/
+service GrpcWebService{
+	rpc SendSingle(GrpcWebService_SendSingleReq) returns(GrpcKendez_Common_Abstraction_Types_Base_OperationResult_Kendez_NikSms_WebService_Abstraction_Models_WebServiceSendSmsSingleResponse_);
+	rpc SendGroup(GrpcWebService_SendGroupReq) returns(GrpcKendez_Common_Abstraction_Types_Base_OperationResult_Kendez_NikSms_WebService_Abstraction_Models_WebServiceSendSmsGroupResponse_);
+	rpc SendPtp(GrpcWebService_SendPtpReq) returns(GrpcKendez_Common_Abstraction_Types_Base_OperationResult_Kendez_NikSms_WebService_Abstraction_Models_WebServiceSendSmsPtpResponse_);
+	rpc SendOtp(GrpcWebService_SendOtpReq) returns(GrpcKendez_Common_Abstraction_Types_Base_OperationResult_Kendez_NikSms_WebService_Abstraction_Models_WebServiceSendSmsOtpResponse_);
+	rpc GetCredit(GrpcWebService_GetCreditReq) returns(GrpcKendez_Common_Abstraction_Types_Base_OperationResult_Kendez_NikSms_WebService_Abstraction_Models_WebServiceGetCreditResponse_);
+	rpc GetPanelExpireDate(GrpcWebService_GetPanelExpireDateReq) returns(GrpcKendez_Common_Abstraction_Types_Base_OperationResult_Kendez_NikSms_WebService_Abstraction_Models_WebServiceGetPanelExpireDateResponse_);
+	rpc SmsStatus(GrpcWebService_SmsStatusReq) returns(GrpcKendez_Common_Abstraction_Types_Base_OperationResult_Kendez_NikSms_WebService_Abstraction_Models_WebServiceGetSmsStatusResponse_);
+}
+
+/*---------- Messages ----------*/
+message GrpcWebService_SendSingleReq{
+	GrpcWebServiceSendSmsSingleRequest Request = 1;
+}
+
+message GrpcKendez_Common_Abstraction_Types_Base_OperationResult_Kendez_NikSms_WebService_Abstraction_Models_WebServiceSendSmsSingleResponse_{
+	GrpcWebServiceSendSmsSingleResponse Data = 1;
+	string Message = 2;
+	string ErrorCode = 3;
+	map<string, string> Trace = 4;
+	GrpcOperationResultType OperationStatus = 5;
+	bool IsSuccess = 6;
+}
+
+message GrpcWebService_SendGroupReq{
+	GrpcWebServiceSendSmsGroupRequest Request = 1;
+}
+
+message GrpcKendez_Common_Abstraction_Types_Base_OperationResult_Kendez_NikSms_WebService_Abstraction_Models_WebServiceSendSmsGroupResponse_{
+	GrpcWebServiceSendSmsGroupResponse Data = 1;
+	string Message = 2;
+	string ErrorCode = 3;
+	map<string, string> Trace = 4;
+	GrpcOperationResultType OperationStatus = 5;
+	bool IsSuccess = 6;
+}
+
+message GrpcWebService_SendPtpReq{
+	GrpcWebServiceSendSmsPtpRequest Request = 1;
+}
+
+message GrpcKendez_Common_Abstraction_Types_Base_OperationResult_Kendez_NikSms_WebService_Abstraction_Models_WebServiceSendSmsPtpResponse_{
+	GrpcWebServiceSendSmsPtpResponse Data = 1;
+	string Message = 2;
+	string ErrorCode = 3;
+	map<string, string> Trace = 4;
+	GrpcOperationResultType OperationStatus = 5;
+	bool IsSuccess = 6;
+}
+
+message GrpcWebService_SendOtpReq{
+	GrpcWebServiceSendSmsOtpRequest Request = 1;
+}
+
+message GrpcKendez_Common_Abstraction_Types_Base_OperationResult_Kendez_NikSms_WebService_Abstraction_Models_WebServiceSendSmsOtpResponse_{
+	GrpcWebServiceSendSmsOtpResponse Data = 1;
+	string Message = 2;
+	string ErrorCode = 3;
+	map<string, string> Trace = 4;
+	GrpcOperationResultType OperationStatus = 5;
+	bool IsSuccess = 6;
+}
+
+message GrpcWebService_GetCreditReq{
+	GrpcWebServiceGetCreditRequest Request = 1;
+}
+
+message GrpcKendez_Common_Abstraction_Types_Base_OperationResult_Kendez_NikSms_WebService_Abstraction_Models_WebServiceGetCreditResponse_{
+	GrpcWebServiceGetCreditResponse Data = 1;
+	string Message = 2;
+	string ErrorCode = 3;
+	map<string, string> Trace = 4;
+	GrpcOperationResultType OperationStatus = 5;
+	bool IsSuccess = 6;
+}
+
+message GrpcWebService_GetPanelExpireDateReq{
+	GrpcWebServiceGetPanelExpireDateRequest Request = 1;
+}
+
+message GrpcKendez_Common_Abstraction_Types_Base_OperationResult_Kendez_NikSms_WebService_Abstraction_Models_WebServiceGetPanelExpireDateResponse_{
+	GrpcWebServiceGetPanelExpireDateResponse Data = 1;
+	string Message = 2;
+	string ErrorCode = 3;
+	map<string, string> Trace = 4;
+	GrpcOperationResultType OperationStatus = 5;
+	bool IsSuccess = 6;
+}
+
+message GrpcWebService_SmsStatusReq{
+	GrpcWebServiceGetSmsStatusRequest Request = 1;
+}
+
+message GrpcKendez_Common_Abstraction_Types_Base_OperationResult_Kendez_NikSms_WebService_Abstraction_Models_WebServiceGetSmsStatusResponse_{
+	GrpcWebServiceGetSmsStatusResponse Data = 1;
+	string Message = 2;
+	string ErrorCode = 3;
+	map<string, string> Trace = 4;
+	GrpcOperationResultType OperationStatus = 5;
+	bool IsSuccess = 6;
+}
+
+message GrpcWebServiceSendSmsSingleRequest{
+	string ApiKey = 1;
+	string SenderNumber = 2;
+	optional google.protobuf.Timestamp SendDate = 3;
+	string Phone = 4;
+	string MessageId = 5;
+	string Message = 6;
+	GrpcOperatorSmsSendType SendType = 7;
+	string ServiceType = 8;
+	GrpcApiType ApiType = 9;
+	bool Debug = 10;
+	int32 Priority = 11;
+}
+
+message GrpcWebServiceSendSmsSingleResponse{
+	GrpcWebServiceSendSmsResult Result = 1;
+}
+
+message GrpcWebServiceSendSmsGroupRequest{
+	string ApiKey = 1;
+	string Message = 2;
+	string SenderNumber = 3;
+	optional google.protobuf.Timestamp SendDate = 4;
+	repeated GrpcWebServiceGroupSmsRecipient Recipients = 5;
+	GrpcOperatorSmsSendType SendType = 6;
+	string ServiceType = 7;
+	GrpcApiType ApiType = 8;
+	bool Debug = 9;
+	int32 Priority = 10;
+}
+
+message GrpcWebServiceSendSmsGroupResponse{
+	GrpcWebServiceSendSmsResult Result = 1;
+}
+
+message GrpcWebServiceSendSmsPtpRequest{
+	string ApiKey = 1;
+	string SenderNumber = 2;
+	optional google.protobuf.Timestamp SendDate = 3;
+	repeated GrpcWebServicePtpSmsRecipient Recipients = 4;
+	GrpcOperatorSmsSendType SendType = 5;
+	string ServiceType = 6;
+	GrpcApiType ApiType = 7;
+	bool Debug = 8;
+	int32 Priority = 9;
+}
+
+message GrpcWebServiceSendSmsPtpResponse{
+	GrpcWebServiceSendSmsResult Result = 1;
+}
+
+message GrpcWebServiceSendSmsOtpRequest{
+	string ApiKey = 1;
+	string SenderNumber = 2;
+	optional google.protobuf.Timestamp SendDate = 3;
+	string Phone = 4;
+	string MessageId = 5;
+	string Message = 6;
+	GrpcOperatorSmsSendType SendType = 7;
+	string ServiceType = 8;
+	GrpcApiType ApiType = 9;
+	bool Debug = 10;
+	int32 Priority = 11;
+}
+
+message GrpcWebServiceSendSmsOtpResponse{
+	GrpcWebServiceSendSmsResult Result = 1;
+}
+
+message GrpcWebServiceGetCreditRequest{
+	string ApiKey = 1;
+	string ServiceType = 2;
+	GrpcApiType ApiType = 3;
+	bool Debug = 4;
+}
+
+message GrpcWebServiceGetCreditResponse{
+	double Balance = 1;
+	GrpcCurrencyType Currency = 2;
+}
+
+message GrpcWebServiceGetPanelExpireDateRequest{
+	string ApiKey = 1;
+	string ServiceType = 2;
+	GrpcApiType ApiType = 3;
+	bool Debug = 4;
+}
+
+message GrpcWebServiceGetPanelExpireDateResponse{
+	google.protobuf.Timestamp ExpiresAt = 1;
+}
+
+message GrpcWebServiceGetSmsStatusRequest{
+	string ApiKey = 1;
+	repeated string MessageIds = 2;
+	string ServiceType = 3;
+	GrpcApiType ApiType = 4;
+	bool Debug = 5;
+}
+
+message GrpcWebServiceGetSmsStatusResponse{
+	repeated GrpcWebServiceSmsStatusResult Result = 1;
+}
+
+message GrpcWebServiceSendSmsResult{
+	GrpcMessageStatus Status = 1;
+	string Message = 2;
+	string OperationId = 3;
+	repeated string MessageIds = 4;
+}
+
+message GrpcWebServiceGroupSmsRecipient{
+	string Phone = 1;
+	string MessageId = 2;
+}
+
+message GrpcWebServicePtpSmsRecipient{
+	string Message = 1;
+	string Phone = 2;
+	string MessageId = 3;
+}
+
+message GrpcWebServiceSmsStatusResult{
+	string MessageId = 1;
+	GrpcSmsStatus Status = 2;
+}
+
+
+/*---------- Predefined Messages ----------*/
+message GrpcDynamicObjectMessage{
+	string Value = 1;
+	string ValueType = 2;
+}
+/*---------- Enums ----------*/
+enum GrpcOperationResultType{
+	OperationResultType_Pending = 0;
+	OperationResultType_UnAuthorized = 1;
+	OperationResultType_Failed = 2;
+	OperationResultType_Success = 3;
+	OperationResultType_NotFound = 4;
+	OperationResultType_Rejected = 5;
+	OperationResultType_Duplicate = 6;
+	OperationResultType_Validation = 7;
+	OperationResultType_BotUserNotFound = 8;
+	OperationResultType_Conflict = 9;
+	OperationResultType_NotAcceptable = 10;
+	OperationResultType_SecurityIssue = 11;
+	OperationResultType_UnsupportedMediaType = 12;
+	OperationResultType_UnKnown = 255;
+}
+enum GrpcOperatorSmsSendType{
+	 OperatorSmsSendType_Unknown = 0;
+	OperatorSmsSendType_Normal = 1;
+	OperatorSmsSendType_Flash = 2;
+	OperatorSmsSendType_AudioMessageMinute = 3;
+	OperatorSmsSendType_AudioMessageSecod = 4;
+}
+enum GrpcApiType{
+	 ApiType_Unknown = 0;
+	ApiType_Normal = 1;
+	ApiType_OTP = 2;
+}
+enum GrpcCurrencyType{
+	CurrencyType_UnKnown = 0;
+	CurrencyType_Rial = 1;
+	CurrencyType_Dirham = 2;
+	CurrencyType_USD = 3;
+	CurrencyType_EUR = 4;
+}
+enum GrpcMessageStatus{
+	 MessageStatus_Unknown = 0;
+	MessageStatus_Successful = 1;
+	MessageStatus_UnknownError = 2;
+	MessageStatus_InsufficientCredit = 3;
+	MessageStatus_ForbiddenHours = 4;
+	MessageStatus_Filtered = 5;
+	MessageStatus_NoFilters = 6;
+	MessageStatus_PrivateNumberIsDisable = 7;
+	MessageStatus_ArgumentIsNullOrIncorrect = 8;
+	MessageStatus_MessageBodyIsNullOrEmpty = 9;
+	MessageStatus_PrivateNumberIsIncorrect = 10;
+	MessageStatus_ReceptionNumberIsIncorrect = 11;
+	MessageStatus_SentTypeIsIncorrect = 12;
+	MessageStatus_Warning = 13;
+	MessageStatus_PanelIsBlocked = 14;
+	MessageStatus_SiteUpdating = 15;
+	MessageStatus_AudioMessageNotAllowed = 16;
+	MessageStatus_AudioMessageFileSizeNotAllowed = 17;
+	MessageStatus_PanelExpired = 18;
+	MessageStatus_InvalidUserNameOrPass = 19;
+	MessageStatus_UserIsWaitForApprove = 20;
+	MessageStatus_UserApiBlocked = 21;
+	MessageStatus_CheckedByAi = 22;
+	MessageStatus_HavePendingFilter = 23;
+}
+enum GrpcSmsStatus{
+	SmsStatus_NotFound = 0;
+	SmsStatus_DoNotSend = 1;
+	SmsStatus_InQueue = 2;
+	SmsStatus_Sent = 3;
+	SmsStatus_InsufficientCredit = 4;
+	SmsStatus_Block = 6;
+	SmsStatus_NotDeliverdCanceled = 8;
+	SmsStatus_NotDeliverdSmsAdvertisingBlock = 9;
+	SmsStatus_NotDeliverdBlackList = 10;
+	SmsStatus_NotDeliverdDelay = 11;
+	SmsStatus_NotDeliverdNoViber = 13;
+	SmsStatus_NotDeliverdFiltering = 14;
+	SmsStatus_WaitingForRecheckInOprator = 15;
+	SmsStatus_OpratorFault = 16;
+	SmsStatus_NotDeliveredBlocked = 17;
+	SmsStatus_SendedButStatusNotUpdated = 18;
+	SmsStatus_NotDeliveredDuplicate = 19;
+	SmsStatus_NotDeliveredBlockPanel = 20;
+	SmsStatus_NotDeliveredUnknownNumber = 21;
+	SmsStatus_WaitingForDeliveryBeforeSend = 22;
+	SmsStatus_NotDeliveredUnAccessible = 23;
+	SmsStatus_NotDeliveredNotAnswered = 24;
+	SmsStatus_NotDeliveredLineIsBusy = 25;
+	SmsStatus_NotDeliverTCTFiltering = 26;
+	SmsStatus_NotDeliverForbiddenTime = 27;
+	SmsStatus_NotDeliverdSmsAdvertisingBlockOperator = 28;
+	SmsStatus_Unknown = 29;
+}

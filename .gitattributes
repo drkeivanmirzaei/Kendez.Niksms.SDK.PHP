@@ -1,0 +1,39 @@
+# Ensure these files are always text and use LF line endings on checkout.
+*.php text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.xml text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.txt text eol=lf
+*.ini text eol=lf
+
+# Composer
+composer.lock export-ignore
+
+# Documentation
+README.md export-ignore
+CHANGELOG.md export-ignore
+LICENSE export-ignore
+
+# Development files
+.gitignore export-ignore
+.gitattributes export-ignore
+.phpunit.xml export-ignore
+phpstan.neon export-ignore
+
+# Test files
+tests/ export-ignore
+test_*.php export-ignore
+simple_test.php export-ignore
+
+# Development examples
+examples/ export-ignore
+send_sms*.json export-ignore
+
+# Proto files (for development)
+proto/ export-ignore
+
+# Composer setup
+composer-setup.php export-ignore
+composer.phar export-ignore
