@@ -12,7 +12,7 @@ use Niksms\Models\GetSmsStatusRequest;
 echo "=== Testing Complete NikSms PHP SDK ===\n";
 
 // مشخصات تست
-$apiKey = "cfe991fa-b15a-474e-9497-62a0beb6aad2";
+$apiKey = "Your Api Key";
 
 try {
     // ایجاد کلاینت REST
@@ -43,7 +43,7 @@ try {
     $singleRequest = new SendSmsSingleRequest();
     $singleRequest->ApiKey = $apiKey;
     $singleRequest->SenderNumber = "";
-    $singleRequest->Phone = "09195059618";
+    $singleRequest->Phone = "Your Phone Number";
     $singleRequest->Message = "Test single SMS from PHP SDK";
     $singleRequest->ServiceType = "SDK_Php";
     $singleRequest->ApiType = 1;
@@ -67,7 +67,7 @@ try {
     $otpRequest = new SendSmsOtpRequest();
     $otpRequest->ApiKey = $apiKey;
     $otpRequest->SenderNumber = "";
-    $otpRequest->Phone = "09195059618";
+    $otpRequest->Phone = "Your Phone Number";
     $otpRequest->Message = "Your OTP code: 123456";
     $otpRequest->ServiceType = "SDK_Php";
     $otpRequest->ApiType = 1;
@@ -86,8 +86,8 @@ try {
     $groupRequest->ServiceType = "SDK_Php";
     $groupRequest->ApiType = 1;
     $groupRequest->Recipients = [
-        ["Phone" => "09195059618", "MessageId" => "group_msg_1"],
-        ["Phone" => "09195059618", "MessageId" => "group_msg_2"]
+        ["Phone" => "Your Phone Number", "MessageId" => "group_msg_1"],
+        ["Phone" => "Your Second Phone Number", "MessageId" => "group_msg_2"]
     ];
     
     $groupResponse = $client->sendGroup($groupRequest);
@@ -104,12 +104,12 @@ try {
     $ptpRequest->ApiType = 1;
     $ptpRequest->Recipients = [
         [
-            "Phone" => "09195059618", 
+            "Phone" => "Your Phone Number", 
             "Message" => "Personal message 1", 
             "MessageId" => "ptp_msg_1"
         ],
         [
-            "Phone" => "09195059618", 
+            "Phone" => "Your Second Phone Number", 
             "Message" => "Personal message 2", 
             "MessageId" => "ptp_msg_2"
         ]
